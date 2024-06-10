@@ -3,7 +3,9 @@
   // noinspection ES6UnusedImports
   import * as Card from '$lib/components/ui/card'
   import { Button } from '$lib/components/ui/button'
-  import supabase from '$lib/supabaseClient'
+
+  export let data;
+  let supabase = data.supabase;
 
   interface MarketBot {
     id: string
@@ -16,7 +18,7 @@
   async function fetchMarketplaceBots() {
     const { data, error } = await supabase
       .from('marketplace')
-      .select('id, name, price')
+      .select('id, name, price');
 
     if (error) {
       console.error('Error fetching marketplace bots:', error)
@@ -28,11 +30,16 @@
       name: bot.name,
       price: bot.price,
     }))
+
   }
 
   async function buyBotFromMarketplace(bot: MarketBot) {
-    // @TODO: Implement buying bots
-    console.log(`Purchased ${bot.name}`);
+    supabase.from('purchased_bots').insert({
+      bot_model: bot.id,
+      owner: data.session.user.id
+    }).then(() => {
+      console.log("Bot purchased successfully")
+    });
   }
 
   fetchMarketplaceBots();
