@@ -9,7 +9,7 @@ export const load = async ({ locals: { supabase, safeGetSession } }) => {
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select(`username, full_name, website, avatar_url, role, alpaca_account_id`)
+    .select(`username, full_name, website, avatar_url, role`)
     .eq('id', session.user.id)
     .single()
 
