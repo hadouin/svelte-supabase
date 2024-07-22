@@ -3,6 +3,7 @@
   "license": "MIT",
   "version": "0.0.1",
   "scripts": {
+    "start": "node build",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
@@ -22,6 +23,7 @@
     "@supabase/auth-ui-svelte": "^0.2.9",
     "@supabase/ssr": "^0.3.0",
     "@supabase/supabase-js": "^2.43.4",
+    "@sveltejs/adapter-node": "^5.2.0",
     "@unovis/svelte": "^1.4.1",
     "bcryptjs": "^2.4.3",
     "bits-ui": "^0.21.10",
