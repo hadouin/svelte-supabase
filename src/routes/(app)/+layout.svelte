@@ -36,21 +36,11 @@
   // const session = data.session as Session | null
   const session = true
 
-  const navItems = session
-    ? [
-        { href: '/home', icon: Home, label: 'Home' },
-        { href: '/trade', icon: CandlestickChart, label: 'Trade' },
-        { href: '/users', icon: Users, label: 'Users' },
-        { href: '/settings', icon: Settings, label: 'Settings' },
-
-        { href: '/register', icon: UserPlus2, label: 'Register' },
-        { href: '/marketplace', icon: BuildingIcon, label: 'Marketplace' },
-        { href: '/trades', icon: DoorOpen, label: 'Trades' },
-      ]
-    : [
-        { href: '/login', icon: LogIn, label: 'Login' },
-        { href: '/signup', icon: UserPlus2, label: 'Signup' },
-      ]
+  const navItems = [
+    { href: '/home', icon: Home, label: 'Home' },
+    { href: '/users', icon: Users, label: 'Users' },
+    { href: '/settings', icon: Settings, label: 'Settings' },
+  ]
 
   let open = false
 
